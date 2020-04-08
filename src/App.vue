@@ -4,6 +4,7 @@
       <h1>Lista de Afazeres</h1>
     </header>
     <main>
+      <progression-bar :progression="completion"></progression-bar>
 
       <!-- TODO: other components -->
       <div style="flex: 1 0 auto;"></div>
@@ -16,10 +17,23 @@
 </template>
 
 <script>
+import ProgressionBar from './components/ProgressionBar.vue'
+
 export default {
+
+  components: {
+    ProgressionBar,
+  },
 
   data() {
     return {}
+  },
+
+  computed: {
+    completion() {
+      // TODO: (number of completed tasks) / (number of tasks)
+      return 40
+    },
   },
 }
 </script>
@@ -57,6 +71,10 @@ body {
   max-width: 1200px;
   display: flex;
   flex-direction: column;
+}
+
+.progress-bar {
+  flex-shrink: 0;
 }
 
 #app > footer {
