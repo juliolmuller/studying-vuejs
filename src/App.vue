@@ -1,11 +1,27 @@
 <template>
   <div id="app">
-    <h1>Lista de Afazeres</h1>
+    <header>
+      <h1>Lista de Afazeres</h1>
+    </header>
+    <main>
+
+      <!-- TODO: other components -->
+      <div style="flex: 1 0 auto;"></div>
+
+    </main>
+    <footer>
+      <small>LacusSoft &copy; 2020 - Todos os direitos reservados</small>
+    </footer>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+
+  data() {
+    return {}
+  },
+}
 </script>
 
 <style>
@@ -18,17 +34,34 @@ body {
 }
 
 #app {
+  height: 95vh;
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
-#app h1 {
+#app > header {
+  flex-shrink: 0;
+}
+
+#app > header > h1 {
   margin-bottom: 5px;
   font-weight: 300;
   font-size: 3rem;
+}
+
+#app > main {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+#app > footer {
+  flex-shrink: 0;
+  color: #ccc;
+  font-size: small;
 }
 </style>
