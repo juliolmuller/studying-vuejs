@@ -38,6 +38,7 @@ export default {
   height: 100%;
   background-color: green;
   border-radius: 8px;
+  z-index: -1;
 }
 .progress-bar-label {
   display: block;
