@@ -48,14 +48,14 @@ export default {
 }
 .input-control {
   width: 500px;
-  background-color: rgb(200, 200, 200, 0.5);
+  background-color: rgb(255, 255, 255, 0.1);
   border-radius: 8px 0 0 8px;
 }
 .input-control:focus, .input-control:active {
   border: 1px lightgreen solid;
 }
 .input-control::placeholder {
-  color: #ccc;
+  color: #aaa;
   font-size: medium;
   font-style: italic;
   font-weight: lighter;
