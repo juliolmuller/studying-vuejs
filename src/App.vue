@@ -9,8 +9,9 @@
       <div class="todos-grid" v-if="todos.length">
         <todo-card
           v-for="(todo, index) in todos"
-          :key="todo.task"
+          :key="index"
           :todo="todo"
+          @toggle="toggleTodo(index)"
           @delete="deleteTodo(index)"
         />
       </div>
@@ -39,15 +40,7 @@ export default {
 
   data() {
     return {
-      todos: [
-        { task: 'Lavar a louça', completed: false },
-        { task: 'Levar os cachorros para passear', completed: true },
-        { task: 'Dar comida para os cacjprrps', completed: true },
-        { task: 'Terminar projeto \'Todo\'', completed: false },
-        { task: 'Estudar inglês', completed: false },
-        { task: 'Fazer matrícula na academia', completed: true },
-        { task: 'Marcar consulta no dentista', completed: true },
-      ],
+      todos: [],
     }
   },
 
@@ -58,6 +51,12 @@ export default {
     },
   },
 
+  watch: {
+    todos(value) {
+      localStorage.setItem('my_todos', JSON.stringify(value))
+    },
+  },
+
   methods: {
     addTodo(todo) {
       this.todos.push({
@@ -65,11 +64,23 @@ export default {
         completed: false,
       })
     },
+    toggleTodo(index) {
+      this.todos = this.todos.map((todo, i) => {
+        if (i === index) {
+          todo.completed = !todo.completed
+        }
+        return todo
+      })
+    },
     deleteTodo(index) {
       if (confirm('Tem certeza de que deseja excluir essa tarefa?')) {
         this.todos.splice(index, 1)
       }
     },
+  },
+
+  created() {
+    this.todos = JSON.parse(localStorage.getItem('my_todos')) || []
   },
 }
 </script>

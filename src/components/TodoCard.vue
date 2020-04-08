@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-card" :class="completion" @click="toggle">
+  <div class="todo-card" :class="completion" @click="$emit('toggle')">
     <span class="todo-delete" title="Excluir" @click="$emit('delete')">x</span>
     <span class="todo-card-text">{{ todo.task }}</span>
   </div>
@@ -18,12 +18,6 @@ export default {
   computed: {
     completion() {
       return this.todo.completed ? 'completed' : 'pending'
-    },
-  },
-
-  methods: {
-    toggle() {
-      this.todo.completed = !this.todo.completed
     },
   },
 }
