@@ -2,7 +2,7 @@
   <form class="input-form" @submit.prevent="createTodo">
     <label for="newTodo" class="input-label">Insira uma nova tarefa</label>
     <div class="input-group">
-      <input id="newTodo" type="text" class="input-control" v-model="todo" placeholder="Insira uma nova tarefa" />
+      <input id="newTodo" type="text" class="input-control" v-model="todo" placeholder="Insira uma nova tarefa" autofocus />
       <button type="submit" class="input-submit" aria-label="salvar">&plus;</button>
     </div>
   </form>
