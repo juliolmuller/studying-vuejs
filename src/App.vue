@@ -6,10 +6,17 @@
     <main>
       <progression-bar :progression="completion" />
       <new-todo-input @create="addTodo" />
-
-      <!-- TODO: other components -->
-      <div style="flex: 1 0 auto;"></div>
-
+      <div class="todos-grid" v-if="todos.length">
+        <todo-card
+          v-for="(todo, index) in todos"
+          :key="todo.task"
+          :todo="todo"
+          @delete="deleteTodo(index)"
+        />
+      </div>
+      <div class="no-todos" v-else>
+        <p>Você parece estar em dia com suas tarefas! 😎</p>
+      </div>
     </main>
     <footer>
       <small>LacusSoft &copy; 2020 - Todos os direitos reservados</small>
@@ -20,45 +27,48 @@
 <script>
 import ProgressionBar from './components/ProgressionBar.vue'
 import NewTodoInput from './components/NewTodoInput.vue'
-
-function* idCreator(nextId) {
-  let index = nextId
-  while (index) {
-    yield index++
-  }
-}
+import TodoCard from './components/TodoCard.vue'
 
 export default {
 
   components: {
     ProgressionBar,
     NewTodoInput,
+    TodoCard,
   },
 
   data() {
     return {
-      todos: [],
-      generator: idCreator(1),
+      todos: [
+        { task: 'Lavar a louça', completed: false },
+        { task: 'Levar os cachorros para passear', completed: true },
+        { task: 'Dar comida para os cacjprrps', completed: true },
+        { task: 'Terminar projeto \'Todo\'', completed: false },
+        { task: 'Estudar inglês', completed: false },
+        { task: 'Fazer matrícula na academia', completed: true },
+        { task: 'Marcar consulta no dentista', completed: true },
+      ],
     }
   },
 
   computed: {
     completion() {
-      // TODO: (number of completed tasks) / (number of tasks)
-      return 40
+      const completedTodos = this.todos.reduce((count, todo) => count + todo.completed, 0)
+      return Math.round(completedTodos / this.todos.length * 100)
     },
   },
 
   methods: {
-    getNextId() {
-      return this.generator.next().value
-    },
     addTodo(todo) {
       this.todos.push({
-        id: this.getNextId(),
         task: todo,
         completed: false,
       })
+    },
+    deleteTodo(index) {
+      if (confirm('Tem certeza de que deseja excluir essa tarefa?')) {
+        this.todos.splice(index, 1)
+      }
     },
   },
 }
@@ -72,7 +82,6 @@ body {
   background: linear-gradient(to right, rgb(22, 34, 42), rgb(58, 96, 115));
   color: #fff;
 }
-
 #app {
   height: 95vh;
   display: flex;
@@ -80,17 +89,14 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 #app > header {
   flex-shrink: 0;
 }
-
 #app > header > h1 {
   margin-bottom: 5px;
   font-weight: 300;
   font-size: 3rem;
 }
-
 #app > main {
   flex: 1 0 auto;
   width: 100%;
@@ -98,11 +104,24 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .progress-bar {
   flex-shrink: 0;
 }
-
+.todos-grid {
+  display: flex;
+  margin: 1rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.no-todos {
+  padding-top: 10rem;
+  display: flex;
+}
+.no-todos > p {
+  margin: auto;
+  color: white;
+  font-size: 1.5rem;
+}
 #app > footer {
   flex-shrink: 0;
   color: #ccc;
