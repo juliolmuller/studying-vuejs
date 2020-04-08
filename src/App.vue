@@ -4,7 +4,8 @@
       <h1>Lista de Afazeres</h1>
     </header>
     <main>
-      <progression-bar :progression="completion"></progression-bar>
+      <progression-bar :progression="completion" />
+      <new-todo-input @create="addTodo" />
 
       <!-- TODO: other components -->
       <div style="flex: 1 0 auto;"></div>
@@ -18,21 +19,46 @@
 
 <script>
 import ProgressionBar from './components/ProgressionBar.vue'
+import NewTodoInput from './components/NewTodoInput.vue'
+
+function* idCreator(nextId) {
+  let index = nextId
+  while (index) {
+    yield index++
+  }
+}
 
 export default {
 
   components: {
     ProgressionBar,
+    NewTodoInput,
   },
 
   data() {
-    return {}
+    return {
+      todos: [],
+      generator: idCreator(1),
+    }
   },
 
   computed: {
     completion() {
       // TODO: (number of completed tasks) / (number of tasks)
       return 40
+    },
+  },
+
+  methods: {
+    getNextId() {
+      return this.generator.next().value
+    },
+    addTodo(todo) {
+      this.todos.push({
+        id: this.getNextId(),
+        task: todo,
+        completed: false,
+      })
     },
   },
 }
