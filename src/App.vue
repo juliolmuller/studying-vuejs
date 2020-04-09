@@ -11,7 +11,6 @@
           v-for="(todo, index) in todos"
           :key="index"
           :todo="todo"
-          @toggle="toggleTodo(index)"
           @delete="deleteTodo(index)"
         />
       </div>
@@ -52,8 +51,11 @@ export default {
   },
 
   watch: {
-    todos(value) {
-      localStorage.setItem('my_todos', JSON.stringify(value))
+    todos: {
+      deep: true,
+      handler(value) {
+        localStorage.setItem('my_todos', JSON.stringify(value))
+      },
     },
   },
 
@@ -62,14 +64,6 @@ export default {
       this.todos.push({
         task: todo,
         completed: false,
-      })
-    },
-    toggleTodo(index) {
-      this.todos = this.todos.map((todo, i) => {
-        if (i === index) {
-          todo.completed = !todo.completed
-        }
-        return todo
       })
     },
     deleteTodo(index) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-card" :class="completion" @click="$emit('toggle')">
+  <div class="todo-card" :class="completion" @click="todo.completed = !todo.completed">
     <span class="todo-delete" title="Excluir" @click="$emit('delete')">x</span>
     <span class="todo-card-text">{{ todo.task }}</span>
   </div>
