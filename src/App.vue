@@ -46,7 +46,7 @@ export default {
   computed: {
     completion() {
       const completedTodos = this.todos.reduce((count, todo) => count + todo.completed, 0)
-      return Math.round(completedTodos / this.todos.length * 100)
+      return Math.round(completedTodos / this.todos.length * 100) || 0
     },
   },
 
