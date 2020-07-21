@@ -3,8 +3,8 @@
 
 - **Author:** [Julio L. Muller](https://github.com/juliolmuller)
 - **Released on:** Apr 8, 2020
-- **Updated on:** Apr 8, 2020
-- **Latest version:** 1.0.0
+- **Updated on:** Jul 21, 2020
+- **Latest version:** 1.0.1
 - **License:** MIT
 
 ## Overview
@@ -19,7 +19,7 @@ Take a look at this application running through [this link](https://juliolmuller
 
 ## Project setup
 
-Run `npm install` to download all dependecnies and get the project set up.
+Run `npm install` to download all dependencies and get the project set up.
 
 ## Development server
 
