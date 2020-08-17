@@ -1,30 +1,49 @@
+<h1 align="center">
+  :octocat: Simple CRUD with Vue.js 2
+</h1>
 
-# Simple Vue.js CRUD Application
-
-- **Author:** [Julio L. Muller](https://github.com/juliolmuller)
+- **Project proposed by:** [Cod3r](https://www.cod3r.com.br/)
+- **Project developed by:** [Julio L. Muller](https://github.com/juliolmuller)
 - **Released on:** Apr 8, 2020
-- **Updated on:** Jul 21, 2020
-- **Latest version:** 1.0.1
+- **Updated on:** Aug 17, 2020
+- **Latest version:** 1.0.2
 - **License:** MIT
 
-## Overview
+![Application snapshot](./app-overview.jpg)
 
-Application developed to demonstrate a functional CRUD application (create, read, update & delete data) using the JavaScript framework Vue 2. This a front-end application which "persists" data in *localStorage*.
+CRUD application developed during [Cod3r's official Vue.js course](https://www.udemy.com/course/vue-js-completo/), on Udemy.
 
-![Application overview](./app-overview.jpg)
+[Check out the application running!](https://juliolmuller.github.io/crud-vuejs/)
 
-## Run Application
+## :trophy: Lessons Learned
 
-Take a look at this application running through [this link](https://juliolmuller.github.io/crud-vuejs).
+- Vue.js 2 project structure;
+- `LocalStorage` API;
+- Styling techniques;
 
-## Project setup
+## :hammer: Technologies & Resources
 
-Run `npm install` to download all dependencies and get the project set up.
+**Frontend:**
+- Vue.js 2
 
-## Development server
+**Development:**
+- Visual Studio Code
+- Vue CLI & Node.js routines
 
-Run `npm run serve` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+## :zap: Features
 
-## Build
+- restore saved tasks from browser's local storage;
+- Create new task;
+- Complete existing task;
+- Delete existing task;
+- Save changes to browser's local storage;
 
-Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## :bell: Setting up the Environment
+
+Make sure to have **Node.js 10+** installed in your machine and its **npm** available in the command line, then use the following routines:
+
+```bash
+$ npm install   # Download dependencies
+$ npm run serve # Run development server
+$ npm run build # Build files for production
+```
