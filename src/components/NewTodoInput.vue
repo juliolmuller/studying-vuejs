@@ -2,7 +2,14 @@
   <form class="input-form" @submit.prevent="createTodo">
     <label for="newTodo" class="input-label">Insira uma nova tarefa</label>
     <div class="input-group">
-      <input id="newTodo" type="text" class="input-control" v-model="todo" placeholder="Insira uma nova tarefa" autofocus />
+      <input
+        id="newTodo"
+        type="text"
+        class="input-control"
+        placeholder="Insira uma nova tarefa"
+        autofocus
+        v-model="todo"
+      />
       <button type="submit" class="input-submit" aria-label="salvar">&plus;</button>
     </div>
   </form>
@@ -11,11 +18,9 @@
 <script>
 export default {
 
-  data() {
-    return {
-      todo: '',
-    }
-  },
+  data: () => ({
+    todo: '',
+  }),
 
   methods: {
     createTodo() {

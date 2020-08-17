@@ -3,6 +3,7 @@
     <header>
       <h1>Lista de Afazeres</h1>
     </header>
+
     <main>
       <progression-bar :progression="completion" />
       <new-todo-input @create="addTodo" />
@@ -37,16 +38,16 @@ export default {
     TodoCard,
   },
 
-  data() {
-    return {
-      todos: [],
-    }
-  },
+  data: () => ({
+    todos: [],
+  }),
 
   computed: {
     completion() {
+      const PERCENTAGE = 100
       const completedTodos = this.todos.reduce((count, todo) => count + todo.completed, 0)
-      return Math.round(completedTodos / this.todos.length * 100) || 0
+
+      return Math.round((completedTodos / this.todos.length) * PERCENTAGE) || 0
     },
   },
 
@@ -60,13 +61,11 @@ export default {
   },
 
   methods: {
-    addTodo(todo) {
-      this.todos.push({
-        task: todo,
-        completed: false,
-      })
+    addTodo(task) {
+      this.todos.push({ task, completed: false })
     },
     deleteTodo(index) {
+      // eslint-disable-next-line no-alert
       if (confirm('Tem certeza de que deseja excluir essa tarefa?')) {
         this.todos.splice(index, 1)
       }
