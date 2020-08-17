@@ -1,5 +1,5 @@
 <h1 align="center">
-  :octocat: Simple CRUD with Vue.js 2
+  :pencil: Simple CRUD with Vue.js 2
 </h1>
 
 - **Project proposed by:** [Cod3r](https://www.cod3r.com.br/)
@@ -9,7 +9,7 @@
 - **Latest version:** 1.0.2
 - **License:** MIT
 
-![Application snapshot](./app-overview.jpg)
+![Application snapshot](./src/assets/app-overview.jpg)
 
 CRUD application developed during [Cod3r's official Vue.js course](https://www.udemy.com/course/vue-js-completo/), on Udemy.
 
