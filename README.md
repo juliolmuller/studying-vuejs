@@ -29,14 +29,14 @@ CRUD application developed during [Cod3r's official Vue.js course](https://www.u
 
 ## :trophy: Lessons Learned
 
-- Vue.js 2 project structure;
+- Vue.js 2/3 project structure;
 - `LocalStorage` API;
 - Styling techniques;
 
 ## :rocket: Technologies & Resources
 
 **Frontend:**
-- Vue.js 2
+- Vue.js ~~2~~ 3
 
 **Development:**
 - Visual Studio Code
@@ -47,14 +47,14 @@ CRUD application developed during [Cod3r's official Vue.js course](https://www.u
 Make sure to have **Node.js 10+** installed in your machine and its **npm** available in the command line, then use the following routines:
 
 ```bash
-$ npm install   # Download dependencies
-$ npm start     # Run development server
-$ npm run build # Build files for production
+$ npm install     # Download dependencies
+$ npm start       # Run development server
+$ npm run build   # Build files for production
 ```
 
 ## :zap: Features Implementations
 
-- [ ] Upgrade to Vue 3 and use Composition API;
+- [x] Upgrade to Vue 3 and use Composition API;
 - [x] Restore saved tasks from browser's local storage;
 - [x] Create new tasks;
 - [x] Mark existing tasks as completed;
