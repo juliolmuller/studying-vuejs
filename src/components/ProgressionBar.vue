@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+
 export default {
 
   props: {
@@ -15,11 +17,9 @@ export default {
     },
   },
 
-  computed: {
-    percentage() {
-      return `${this.progression}%`
-    },
-  },
+  setup: (props) => ({
+    percentage: computed(() => `${props.progression}%`),
+  }),
 }
 </script>
 
@@ -33,6 +33,7 @@ export default {
   border: 1px white solid;
   border-radius: 8px;
 }
+
 .progress-bar-inner {
   position: absolute;
   height: 100%;
@@ -40,6 +41,7 @@ export default {
   border-radius: 8px;
   z-index: -1;
 }
+
 .progress-bar-label {
   display: block;
   text-align: center;

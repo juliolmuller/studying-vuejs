@@ -1,6 +1,8 @@
 <template>
   <form class="input-form" @submit.prevent="createTodo">
-    <label for="newTodo" class="input-label">Insira uma nova tarefa</label>
+    <label for="newTodo" class="input-label">
+      Insira uma nova tarefa
+    </label>
     <div class="input-group">
       <input
         id="newTodo"
@@ -10,23 +12,32 @@
         autofocus
         v-model="todo"
       />
-      <button type="submit" class="input-submit" aria-label="salvar">&plus;</button>
+      <button
+        type="submit"
+        class="input-submit"
+        aria-label="salvar"
+      >&plus;</button>
     </div>
   </form>
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
 
-  data: () => ({
-    todo: '',
-  }),
+  setup(_, { emit }) {
+    const todo = ref('')
 
-  methods: {
-    createTodo() {
-      this.$emit('create', this.todo)
-      this.todo = ''
-    },
+    const createTodo = () => {
+      emit('create', todo.value)
+      todo.value = ''
+    }
+
+    return {
+      todo,
+      createTodo,
+    }
   },
 }
 </script>
@@ -37,13 +48,16 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .input-label {
   display: none;
 }
+
 .input-group {
   position: relative;
   display: inline-block;
 }
+
 .input-control, .input-submit {
   padding: 4px 8px;
   outline: none;
@@ -51,20 +65,24 @@ export default {
   color: white;
   font-size: large;
 }
+
 .input-control {
   width: 500px;
   background-color: rgb(255, 255, 255, 0.1);
   border-radius: 8px 0 0 8px;
 }
+
 .input-control:focus, .input-control:active {
   border: 1px lightgreen solid;
 }
+
 .input-control::placeholder {
   color: #aaa;
   font-size: medium;
   font-style: italic;
   font-weight: lighter;
 }
+
 .input-submit {
   margin-left: -1px;
   border-left: none;
