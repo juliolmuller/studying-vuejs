@@ -1,29 +1,32 @@
 {
   "name": "crud-vue",
-  "version": "1.0.3",
+  "version": "1.0.4",
+  "private": true,
   "license": "MIT",
-  "author": {
-    "name": "Julio L. M",
-    "url": "https://juliolmuller.github.io/"
-  },
+  "author": "Julio L. Muller",
   "scripts": {
     "start": "vue-cli-service serve --open",
     "build": "vue-cli-service build --dest docs --modern",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^2.6.12"
+    "core-js": "^3.8.1",
+    "vue": "^3.0.4"
   },
   "devDependencies": {
-    "@lacussoft/eslint-config-standard": "^1.0.9",
-    "@vue/cli-plugin-babel": "^4.5.8",
-    "@vue/cli-plugin-eslint": "^4.5.8",
-    "@vue/cli-service": "^4.5.8",
+    "@lacussoft/eslint-config": "^1.0.1",
+    "@vue/cli-plugin-babel": "^4.5.9",
+    "@vue/cli-plugin-eslint": "^4.5.9",
+    "@vue/cli-service": "^4.5.9",
+    "@vue/compiler-sfc": "^3.0.4",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.6.5",
-    "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.12"
+    "eslint": "^7.15.0",
+    "eslint-plugin-vue": "^7.3.0"
+  },
+  "babel": {
+    "presets": [
+      "@vue/cli-plugin-babel/preset"
+    ]
   },
   "eslintConfig": {
     "root": true,
@@ -31,19 +34,13 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@lacussoft/standard"
+      "plugin:vue/vue3-essential",
+      "@lacussoft"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
     "rules": {}
-  },
-  "babel": {
-    "presets": [
-      "@vue/cli-plugin-babel/preset"
-    ]
   },
   "browserslist": [
     "> 1%",
