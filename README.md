@@ -1,5 +1,5 @@
 <h1 align="center">
-  :books: Simple CRUD with Vue.js 2
+  :books: Simple CRUD with Vue.js
 </h1>
 
 <p align="center">
