@@ -32,6 +32,7 @@ CRUD application developed during [Cod3r's official Vue.js course](https://www.u
 - Vue.js 2/3 project structure;
 - `LocalStorage` API;
 - Styling techniques;
+- Configuring Vite project with TypeScript
 
 ## :rocket: Technologies & Resources
 
@@ -40,7 +41,7 @@ CRUD application developed during [Cod3r's official Vue.js course](https://www.u
 
 **Development:**
 - Visual Studio Code
-- Vue CLI & Node.js routines
+- ~~Vue CLI~~Vite & Node.js routines
 
 ## :hammer: Setting up the Environment
 
