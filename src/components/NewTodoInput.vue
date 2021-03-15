@@ -21,10 +21,11 @@
   </form>
 </template>
 
-<script>
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
 
-export default {
+export default defineComponent({
+  name: 'NewTodoInput',
 
   setup(_, { emit }) {
     const todo = ref('')
@@ -34,12 +35,9 @@ export default {
       todo.value = ''
     }
 
-    return {
-      todo,
-      createTodo,
-    }
+    return { todo, createTodo }
   },
-}
+})
 </script>
 
 <style scoped>

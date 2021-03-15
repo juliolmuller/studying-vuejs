@@ -9,10 +9,16 @@
   </div>
 </template>
 
-<script>
-import { computed } from 'vue'
+<script lang="ts">
+import { computed, defineComponent } from 'vue'
+import { ToDo } from '../models'
 
-export default {
+interface TodoCardProps {
+  todo: ToDo
+}
+
+export default defineComponent({
+  name: 'TodoCard',
 
   emits: ['toggle', 'delete'],
 
@@ -23,12 +29,14 @@ export default {
     },
   },
 
-  setup: (props) => ({
-    completion: computed(() => (
+  setup(props: TodoCardProps) {
+    const completion = computed(() => (
       props.todo.completed ? 'completed' : 'pending'
-    )),
-  }),
-}
+    ))
+
+    return { completion }
+  },
+})
 </script>
 
 <style scoped>

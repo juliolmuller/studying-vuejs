@@ -20,17 +20,19 @@
     </div>
   </main>
   <footer>
-    <small>LacusSoft &copy; 2020 - Todos os direitos reservados</small>
+    <small>LacusSoft &copy; 2020-2021 - Todos os direitos reservados</small>
   </footer>
 </template>
 
-<script>
-import { ref, computed, watch } from 'vue'
+<script lang="ts">
+import { computed, defineComponent, ref, watch } from 'vue'
 import ProgressionBar from './components/ProgressionBar.vue'
 import NewTodoInput from './components/NewTodoInput.vue'
 import TodoCard from './components/TodoCard.vue'
+import { ToDo } from './models'
 
-export default {
+export default defineComponent({
+  name: 'App',
 
   components: {
     ProgressionBar,
@@ -39,27 +41,27 @@ export default {
   },
 
   setup() {
-    const storage = JSON.parse(localStorage.getItem('my_todos'))
+    const storage = JSON.parse(localStorage.getItem('my_todos')) as ToDo[]
     const todos = ref(storage || [])
 
     const completion = computed(() => {
       const PERCENTAGE = 100
-      const completedTodos = todos.value.reduce((count, todo) => count + todo.completed, 0)
+      const completedTodos = todos.value.reduce((count, todo) => count + Number(todo.completed), 0)
 
       return Math.round((completedTodos / todos.value.length) * PERCENTAGE) || 0
     })
 
-    const addTodo = (task) => {
+    const addTodo = (task: string) => {
       todos.value.push({ task, completed: false })
     }
 
-    const deleteTodo = (index) => {
+    const deleteTodo = (index: number) => {
       if (confirm('Tem certeza de que deseja excluir essa tarefa?')) {
         todos.value.splice(index, 1)
       }
     }
 
-    const toggleTodo = (index) => {
+    const toggleTodo = (index: number) => {
       todos.value[index].completed = !todos.value[index].completed
     }
 
@@ -75,7 +77,7 @@ export default {
       toggleTodo,
     }
   },
-}
+})
 </script>
 
 <style>

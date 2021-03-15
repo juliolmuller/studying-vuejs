@@ -5,10 +5,15 @@
   </div>
 </template>
 
-<script>
-import { computed } from 'vue'
+<script lang="ts">
+import { computed, defineComponent } from 'vue'
 
-export default {
+interface ProgressionBarProps {
+  progression: number
+}
+
+export default defineComponent({
+  name: 'ProgressionBar',
 
   props: {
     progression: {
@@ -17,10 +22,12 @@ export default {
     },
   },
 
-  setup: (props) => ({
-    percentage: computed(() => `${props.progression}%`),
-  }),
-}
+  setup(props: ProgressionBarProps) {
+    const percentage = computed(() => `${props.progression}%`)
+
+    return { percentage }
+  },
+})
 </script>
 
 <style scoped>
