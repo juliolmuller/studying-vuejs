@@ -5,9 +5,12 @@
   "license": "MIT",
   "author": "Julio L. Muller",
   "scripts": {
-    "start": "vite --open",
+    "dev": "vite --open",
+    "development": "npm run dev",
     "build": "vite build",
-    "serve": "vite preview"
+    "prod": "vite preview",
+    "production": "npm run prod",
+    "lint": "eslint src/ --fix"
   },
   "dependencies": {
     "vue": "^3.0.7"
