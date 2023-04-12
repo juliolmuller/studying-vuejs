@@ -12,20 +12,20 @@
 <p align="center">
   <img src="https://img.shields.io/static/v1?labelColor=000000&color=42b883&label=created%20at&message=Apr%202020" alt="Creation Date" />
 
-  <img src="https://img.shields.io/github/last-commit/juliolmuller/studying-vuejs-crud?label=updated%20at&labelColor=000000&color=42b883" alt="Update Date" />
+  <img src="https://img.shields.io/github/last-commit/juliolmuller/studying-vuejs?label=updated%20at&labelColor=000000&color=42b883" alt="Update Date" />
 
-  <img src="https://img.shields.io/github/v/tag/juliolmuller/studying-vuejs-crud?label=latest%20version&labelColor=000000&color=42b883" alt="Latest Version" />
+  <img src="https://img.shields.io/github/v/tag/juliolmuller/studying-vuejs?label=latest%20version&labelColor=000000&color=42b883" alt="Latest Version" />
 
   <img src="https://img.shields.io/static/v1?labelColor=000000&color=42b883&label=PRs&message=welcome" alt="Pull Requests Welcome" />
 
-  <img src="https://img.shields.io/github/license/juliolmuller/studying-vuejs-crud?labelColor=000000&color=42b883" alt="Project License" />
+  <img src="https://img.shields.io/github/license/juliolmuller/studying-vuejs?labelColor=000000&color=42b883" alt="Project License" />
 </p>
 
 ![Application snapshot](./src/assets/app-overview.jpg)
 
 CRUD application developed during [Cod3r's official Vue.js course](https://www.udemy.com/course/vue-js-completo/), on Udemy.
 
-[Check out the application running!](https://juliolmuller.github.io/studying-vuejs-crud/)
+[Check out the application running!](https://juliolmuller.github.io/studying-vuejs/)
 
 ## :trophy: Lessons Learned
 
